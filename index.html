@@ -1,0 +1,274 @@
+<!----Home Page for Horoscope---->
+<html>
+	<head>  
+    <link rel="icon" href="image/logo.png">
+		<title>Home Page</title>
+		<!--Style Part-->
+		<style>
+		/*css for header image*/
+			.homeMenuImage
+			{
+			background-image:url("image/love1.gif");
+			height:500px;
+			width:100%;
+			background-size:cover;
+			background-repeat:no-repeat;
+			}
+			/*css for form field*/
+			input[type=text],[type=date]
+			{
+			box-shadow:2px 2px 3px 3px gray;
+			border:none;
+			height:50px;
+			width:100%;
+			}
+			input[type=radio]
+			{
+			  width:20px;
+			  height:20px;
+			}
+			input::placeholder
+			{
+			  font-size:20px;
+			}
+			.linkI
+{
+ text-decoration:none;
+}
+		</style>	
+		<!---Link tag for bootstrap and js files-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=desktop-width, initial-scale=1">
+		<!--CDN for sweet alert-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<!---link for aos-->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">	
+	</head>
+	<body>
+		<!--Div for header-->
+		<div class="container-fluid homeMenuImage" style="width:100%;">
+			<div class="row">
+				<div class="col-sm-11">
+					<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container-fluid">
+				
+						<a class="navbar-brand" href="#"><img src="image/logol.png"  style="height:80px;"/></a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+						
+							<button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" STYLE="color:white;"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon">
+									<i class="fa fa-navicon" style="color:white;font-size:28px;"></i>
+									</span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+									<li class="nav-item">
+										<a class="nav-link active" aria-current="page" href="home.html"
+                                        style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">Home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="aboutus.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">About
+										Us</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="testyourself.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">Test Youself</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="talkastro.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">Talk To Astrologer</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="askQue.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;">Any Query?</a>
+									</li>
+								</ul>
+                              <a href="signUp.html"> <i title="Sign-Up" style="color:#ff4da6;" class="fa-solid fa-id-card fa-beat-fade fa-2x"></i></a>&ensp;&ensp;
+							   <a href="login.html"><i title="Sign-In" style="color:#ff4da6;" class="fa-solid fa-right-to-bracket fa-beat-fade fa-2x"></i></a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid"><br><br>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8">
+					<h2><font style="border-top:5px solid #fe0195;">Do you want to know</font><font style="color:#fe0195;"> your compatibility to your partner?</font></h2>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div><br><br><br>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5" data-aos="fade-right" data-aos-duration="2000">
+					<form action="calculateLove.html" method="post">
+						<h4><font style="color:#fe0195;">Something</font> <font style="border-bottom:2px solid #fe0195;">About You</font></h4><br>
+						<input type="text" placeholder=" Enter Your Name" id="txtyname" class="textField"/><br><br>
+						<input type="text" placeholder=" Enter Your Religion" id="txtyrel" class="textField"/><br><br>
+						<input type="date" placeholder="Enter Your DOB" id="txtydob" class="textField"/><br><br>
+						<font style="font-size:22px;">Gender</font><br>
+						<input type="radio" id="txtymale" name="gender" value="M" class="textField" checked /> MALE&nbsp;&nbsp;&nbsp;
+						<input type="radio" id="txtyfemale"  name="gender" value="F" class="textField"/> FEMALE
+						<br><br>
+					</div>
+					<div class="col-sm-1"></div>
+					<div class="col-sm-1" style="border-left:2px solid #fe0195;">
+						
+						</div>
+					<div class="col-sm-5" data-aos="fade-left" data-aos-duration="2000">
+						<h4><font style="color:#fe0195;">Something </font><font style="border-bottom:2px solid #fe0195;">About Your Partner</font></h4><br>		
+						<input type="text" placeholder="  Enter Your Name" id="txtpname" class="textField"/><br><br>
+						<input type="text" placeholder=" Enter Your Religion" id="txtprel" class="textField"/><br><br>
+						<input type="date" placeholder=" Enter Your DOB" id="txtpdob" class="textField"/><br><br>
+						<font style="font-size:22px;">Gender</font><br>
+						<input type="radio" id="txtpmale" name="gender1" value="M" class="textField"/> MALE&nbsp;&nbsp;&nbsp;
+						<input type="radio" id="txtpfemale"  name="gender1" value="F" class="textField" checked /> FEMALE<br>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					
+					<center><input style="background-color:#fe0195;height:40px;border:none;box-shadow:2px 2px 1px 1px gray;width:80%;" type="button" onclick="calLove(txtyname,txtydob,txtymale,txtyfemale,txtpname,txtpdob,txtpmale,txtpfemale,txtyrel,txtprel)" value="Submit"/></center>
+				</form>
+			</div>
+		</div>
+		<div class="container"><br><br>
+		<div class="row">
+		<div class="col-sm-5">
+		<div id="chartContainer"  style="height: 300px; width: 100%;">
+		</div>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-5" style="box-shadow:1px 2px 2px 2px gray;">
+			<br><br><h3 style="text-align:center;font-family:serif;font-weight:bold;">
+				<font style="border-top:3px solid #fe0195;">Your</font><font style="color:#fe0195;"> Love Status</font>
+				</h3><br>
+		<!---<audio src=""></audio>-->
+			<h4 id="displayCoupleData"></h4>
+			<audio id="audio-player" controls loop style="display: none">
+            <source id="audio-source" src="" type="audio/mp3">
+            </audio>
+			</div>
+		</div>
+		</div><br><br>
+<!--Footer-->
+		<footer class="text-center text-lg-start"style="background-image: linear-gradient(#ff4da6,#ff4da6,#ff4da6,#ff4da6,pink);;">
+    
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left Text-->
+    <div class="me-5 d-none d-lg-block text-light">
+      <span style="font-weight:bold;">Connected with us on social networks:</span>
+    </div>
+
+
+    <!-- Right side icone -->
+    <div>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-facebook-f text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-twitter text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-google text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-instagram text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-linkedin  text-light"></i>
+      </a>
+     
+    </div>
+   
+  </section>
+
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-sm-4">
+        
+          <h6 class="text-uppercase fw-bold mb-4 text-light">
+              &#x1F496;	&#x1F495;</i>Make A Match
+          </h6>
+          <p class="text-light">
+              Horoscope, in astrology, a chart of the heavens, showing 
+              the relative positions of the Sun, the Moon, the planets,
+               and the ascendant and midheaven signs of the zodiac at a
+                specific moment in time. A horoscope is used to provide 
+                information about the present and to predict events to
+                 come.
+          </p>
+        </div>
+        <!-- Service part -->
+
+      
+        <div class="col-sm-4">
+      
+          <h6 class="text-uppercase fw-bold mb-4 text-light">
+            Important Links
+          </h6>
+          <p  class="text-light">
+            <a href="home.html" class="text-reset text-light linkI">Home</a>
+          </p>
+          <p  class="text-light">
+            <a href="aboutus.html" class="text-reset text-light linkI">About Us</a>
+          </p>
+          <p  class="text-light">
+            <a href="testyourself.html" class="text-reset text-light linkI">Test Yourself</a>
+          </p>
+          <p  class="text-light">
+            <a href="talkastro.html" class="text-reset text-light linkI">Talk To  Astrologer</a>
+          </p>
+		   <p  class="text-light">
+            <a href="askQue.html" class="text-reset text-light linkI">Any Query?</a>
+          </p>
+        </div>
+        
+
+     
+
+        <!--Contact part -->
+        <div class="col-sm-4">
+         
+          <h6 class="text-uppercase fw-bold mb-4 text-light">Contact</h6>
+          <p class="text-light"><i class="fas fa-home me-3 text-light"></i>Uttar Pradesh ,Varansi 221005</p>
+          <p class="text-light">
+            <i class="fas fa-envelope me-3 text-light"></i>
+            theprogramergang@gmail.com
+          </p>
+          <p class="text-light"><i class="fas fa-phone me-3 text-light"></i> +9846738344</p>
+          <p class="text-light"><i class="fa-brands fa-whatsapp me-3 text-light"></i></i> + 6473892633</p>
+        </div>
+  
+      </div>
+     
+    </div>
+  </section>
+
+
+  <!-- Group Name -->
+  <div class="text-center p-4 " style="background-color: rgba(5, 5, 5, 0.025);">
+ 
+    <a class="text-reset fw-bold">Developed By The Programmer  Gang</a>
+  </div>
+</footer>
+		<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+		<!--Calling the js of home page-->
+		<script src="homeJS.js"></script>
+<!--script for aos-->
+		 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+	</body>
+</html>
