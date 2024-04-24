@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="image/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+        
+    <style>
+        body {
+            background: pink;
+            height: 100%;
+            width: 100%;
+        }
+        .row {
+            min-height: 600px;
+
+        }
+        .err
+        {
+            color: red;
+            margin-left: 90px;
+           
+        }
+    </style>
+	
+</head>
+<script> 
+        function saveData(sname,semail,spass,scpass)
+	{
+	   let name,email,password;
+	   name=document.getElementById("name").value;
+	   email=document.getElementById("email").value;
+	   password=document.getElementById("password").value;
+	   cpassword=document.getElementById("cpassword").value;
+	   
+	   	   var sp=document.getElementsByClassName("err");
+	for(x=0;x<sp.length;x++)
+	{
+	  sp[x].innerText="";
+	}
+	   var nm=validateName(name,email,password,cpassword,sname,semail,spass,scpass);
+
+	  /* var em=validateEmail(email);
+	   var ps=validatePassword(password);*/
+	  /* localStorage.setItem("name",name);
+	   localStorage.setItem("email",email);
+	  localStorage.setItem("password",password);*/
+	  if(nm==true)
+	  {
+	  let user_records=new Array();
+	  user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+	  //compare the local storage email with the new registration  email for duplicate entry
+	  if(user_records.some((v)=>{
+	  return v.email==email
+	  }))
+	  {
+	    alert("Duplicate Data");
+	  }
+	  else
+	  {
+	    user_records.push({
+		    "name":name,
+		    "email":email,
+		    "password":password
+		})
+		//Store the new data into local storage
+		localStorage.setItem("users",JSON.stringify(user_records));
+		//stringify is used to convert object into string
+		window.location.href="login.html";
+	  }
+	  }
+	}
+	//functio for validate name
+	function validateName(name,email,password,cpassword,sname,semail,spass,scpass)
+	{
+	     result=true;
+	    if(name.length==0)
+		{
+		  sname.innerHTML="Name field is required";
+		  result=false;
+		}
+	else
+	{
+	   x=getWordCount(name);
+	   if(x<2)
+	   {
+	    sname.innerHTML="Please enter your full name.";
+	    result=false; 
+	   }
+	}
+	//validate email
+	if(email.length==0)
+	{
+	    semail.innerHTML="Email field is required";
+		  result=false;
+	}
+	
+	//validating password
+	if(password.length==0)
+	{
+	   spass.innerHTML="Please enter password";
+	   result=false;
+	}
+	else if(password.length<8)
+	{
+	    spass.innerHTML="Password must have 8 character";
+	   result=false;
+	}
+	else
+	{
+	  var spcount=0,lcount=0,ucount=0,dcount=0;
+	  for(x=0;x<password.length;x++)
+	  {
+	    var ascii=password.charCodeAt(x);
+		if(ascii>=65 && ascii<=90)
+		{
+		  ucount++;
+		}
+		else if(ascii>=97 && ascii<=122)
+		{
+		  lcount++;
+		}
+		else if(ascii>=48 && ascii<=57)
+		{
+		  dcount++;
+		}
+		else
+		{
+		 spcount++;
+		}
+	  }
+		if(ucount==0 || lcount==0 || dcount==0 || spcount==0)
+		{
+		spass.innerHTML="Password must have one uppercase,one lowercase,one digit,one special symbol";
+		result=false;
+	  
+	  }
+	}
+		//validating confirm password
+	if(cpassword.length==0)
+	{
+	   scpass.innerHTML="Please enter confirm password";
+	   result=false;
+	}
+	else if(cpassword!=password)
+	{
+	    scpass.innerHTML="Password must be same";
+	   result=false;
+	}
+	return result;
+	}
+	
+	
+	//function for count the word-spacing	function getWordCount(str)
+		function getWordCount(str)
+	{
+	  var count=1,x;
+	  for(x=0;x<str.length;x++)
+	  {
+	    var ch=str.charAt(x); 
+	    if(ch==','||ch=='.'||ch=='?'||ch=='!'||ch==' ')
+		{ 
+		  count++;
+		}
+	  }
+	  return count;
+	}   
+</script>
+
+<body>
+	<br><h5 style="text-align:center;font-family:sans-serif;font-weight:bold;"><a href="home.html" style="text-decoration:underline;color:#fe0195;">HOME</a>/SIGN-UP</h5>
+    <div class="row mt-5">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="row" style="border-radius: 50 50 50 50;">
+                <div class="col-sm-6 p-0" style="background:#ffffff;border-radius:50px 0px 0px 50px;border-right:5px solid pink;">
+                    <video autoplay loop muted plays-inline class="back-video" style="height: 100%; width: 100%;border-radius:50px 0px 0px 50px; border: none;">
+                        <source src="image/gif.mp4" type="video/mp4"/>
+                      </video>
+            </div>
+                <div class="col-sm-6" style="background:white;border-radius:0px 50px 50px 0px;">
+                    <form action="login.html" method="post">
+                        <h1><br>
+                            <B style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-left:40%; color:#fe0195;">SIGN UP</B>
+                        </h1><br><br>
+
+                        <label  for="name" style="margin-left: 100px;">Enter Your Name</label> <br>
+                        <input type="text" placeholder="Enter your Name" id="name" style="width: 70%; margin-left: 90px;"/><br>
+                        <span id="sname" class="err"></span><br>
+                        <label for="email" style="margin-left: 100px;">Enter Your Email</label> <br>
+                        <input type="email" placeholder="Enter your email..." id="email" style="width: 70%; margin-left: 90px;"><br>
+                        <span id="semail" class="err"></span><br>
+                        <label for="password" style="margin-left: 100px;">Enter Your Password</label> <br>
+                        <input type="password" placeholder="Enter your Password" id="password" style="width: 70%; margin-left: 90px;"/><br>
+                        <span id="spass" class="err"></span><br>
+                        <label for="cpass" style="margin-left: 100px;">Enter Your Confirm Password</label> <br>
+                        <input type="password" placeholder="Enter Confirm password" id="cpassword" style="width: 70%; margin-left: 90px;"/><br>
+                        <span id="scpass" class="err"></span><br><br>
+                        <input type="button" value="SIGN UP"
+                            onclick="saveData(sname,semail,spass,scpass)" style="width: 150px; background:#fe0195;border-radius: 50px;border:none;box-shadow:1px 1px 2px 2px gray; color: white;margin-left: 40%;height:50px;"/>
+                           
+   <!--signUp(uname,mail,pass,cpass,suname,smail,sppass,spcpass)-->           
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</body>
+</html>
