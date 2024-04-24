@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="image/logo.png">	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Ans</title>
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="askQueCSS.css">
+</head>
+<body> 
+	<!---Header Page-->
+			<div class="container-fluid" style="width:100%;background-color:pink;">
+			<div class="row">
+				<div class="col-sm-11">
+					<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container-fluid">
+				
+						<a class="navbar-brand" href="#"><img src="image/logol.png"  style="height:80px;"/></a>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+						
+							<button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" STYLE="color:white;"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon">
+									<i class="fa fa-navicon" style="color:white;font-size:28px;"></i>
+									</span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+									<li class="nav-item">
+										<a class="nav-link active" aria-current="page" href="home.html"
+                                        style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">Home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="aboutus.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">About
+										Us</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="testyourself.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">Test Youself</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="talkastro.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;border-right:2px solid #fe0195;">Talk To Astrologer</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link active" href="askQue.html" style="font-size:25px;font-weight:bold;color:white;font-family:serif;">Any Query?</a>
+									</li>
+								</ul>
+                              <a href="signUp.html"> <i title="Sign-Up" style="color:#ff4da6;" class="fa-solid fa-id-card fa-beat-fade fa-2x"></i></a>&ensp;&ensp;
+							   <a href="login.html"><i title="Sign-In" style="color:#ff4da6;" class="fa-solid fa-right-to-bracket fa-beat-fade fa-2x"></i></a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	<br>
+	<!---Heading-->
+	<h2><font style="border-top:5px solid #ff4da6;">Drop</font> Your Query</h2>
+	<!---Search box--->
+	<div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+<div class="search-box">
+    <div class="row">
+	<div  class="col-sm-9">
+        <input type="text" placeholder="Search to..." id="input-box" outocomplete=""off/>
+	</div>
+		<div class="col-sm-3">
+        <button onclick="Print()"><i class="fa-solid fa-magnifying-glass"></i></button>
+		</div>
+    </div>
+    <div class="result-box">
+        
+    </div>
+</div>
+</div>
+	</div>
+	</div><br><br>
+		<!--Div for feedback section-->
+	<div class="container">
+<section class="feedback-section">
+    <h3 class="mainContent">How satisfied are you <br> with our services?</h3>
+    <div class="rating">
+        <div class="child unhappy">
+            <img src="https://c.tenor.com/ySU7TUgwfZoAAAAM/tolkie-sad.gif" height="100px" width="100%"/>
+            <h3 class="subContent">Unhappy</h3>
+        </div>
+		<div class="child satisfied">
+		<!--<p>😁</p>--->
+		    <img src="https://media.tenor.com/images/26a432fd6ca75a57ca6bdecbb296c4b9/tenor.gif" height="100px" width="100%"/>
+            <h3 class="subContent">Worst</h3>
+        </div>
+		 <div class="child unhappy">
+            <img src="https://cdn.dribbble.com/users/116728/screenshots/3436494/angry_emoji.gif" height="100px" width="100%"/>
+            <h3 class="subContent">Angry</h3>
+        </div>
+        <div class="child happy ">
+            <img src="https://www.icegif.com/wp-content/uploads/smiley-face-icegif-3.gif" height="100px" width="100%"/>
+            <h3 class="subContent">Happy</h3>
+        </div>
+        <div class="child satisfied">
+		<!--<p>😁</p>--->
+		    <img src="https://webstockreview.net/images/clipart-smile-smile-gif-2.gif" height="100px" width="100%"/>
+            <h3 class="subContent">Satisfied</h3>
+        </div>
+    </div>
+
+    <div class="feedback-btn">
+        <button class="feedbtn" id="btn" type="button">Send Review</button>
+    </div>
+</section>
+</div>
+<!--Footer-->
+		<footer class="text-center text-lg-start"style="background-image: linear-gradient(#ff4da6,#ff4da6,#ff4da6,#ff4da6,pink);;">
+    
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left Text-->
+    <div class="me-5 d-none d-lg-block text-light">
+      <span style="font-weight:bold;">Connected with us on social networks:</span>
+    </div>
+
+
+    <!-- Right side icone -->
+    <div>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-facebook-f text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-twitter text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-google text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-instagram text-light"></i>
+      </a>
+      <a href="#" class="me-4 link-secondary">
+        <i class="fab fa-linkedin  text-light"></i>
+      </a>
+     
+    </div>
+   
+  </section>
+
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-sm-4">
+        
+          <h6 class="text-uppercase fw-bold mb-4 text-light">
+              &#x1F496;	&#x1F495;</i>Make A Match
+          </h6>
+          <p class="text-light">
+              Horoscope, in astrology, a chart of the heavens, showing 
+              the relative positions of the Sun, the Moon, the planets,
+               and the ascendant and midheaven signs of the zodiac at a
+                specific moment in time. A horoscope is used to provide 
+                information about the present and to predict events to
+                 come.
+          </p>
+        </div>
+        <!-- Service part -->
+
+      
+        <div class="col-sm-4">
+      
+          <h6 class="text-uppercase fw-bold mb-4 text-light">
+            Important Links
+          </h6>
+          <p  class="text-light">
+            <a href="home.html" class="text-reset text-light linkI">Home</a>
+          </p>
+          <p  class="text-light">
+            <a href="aboutus.html" class="text-reset text-light linkI">About Us</a>
+          </p>
+          <p  class="text-light">
+            <a href="testyourself.html" class="text-reset text-light linkI">Test Yourself</a>
+          </p>
+          <p  class="text-light">
+            <a href="talkastro.html" class="text-reset text-light linkI">Talk To  Astrologer</a>
+          </p>
+		  <p  class="text-light">
+            <a href="askQue.html" class="text-reset text-light linkI">Any Query?</a>
+          </p>
+        </div>
+        
+
+     
+
+        <!--Contact part -->
+        <div class="col-sm-4">
+         
+          <h6 class="text-uppercase fw-bold mb-4 text-light">Contact</h6>
+          <p class="text-light"><i class="fas fa-home me-3 text-light"></i>Uttar Pradesh ,Varansi 221005</p>
+          <p class="text-light">
+            <i class="fas fa-envelope me-3 text-light"></i>
+            theprogramergang@gmail.com
+          </p>
+          <p class="text-light"><i class="fas fa-phone me-3 text-light"></i> +9846738344</p>
+          <p class="text-light"><i class="fa-brands fa-whatsapp me-3 text-light"></i></i> + 6473892633</p>
+        </div>
+  
+      </div>
+     
+    </div>
+  </section>
+
+
+  <!-- Group Name -->
+  <div class="text-center p-4 " style="background-color: rgba(5, 5, 5, 0.025);">
+ 
+    <a class="text-reset fw-bold">Developed By The Programmer  Gang</a>
+  </div>
+</footer>
+    <script src="askQueJS
+	.js"></script>
+</body>
+</html>
