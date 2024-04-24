@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="image/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <!---  <link rel="stylesheet" href="style.css">--->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .error{
+            color:#ff0000;
+        }
+        *{
+            margin:0;
+            padding:0;
+            color:#fff;
+        }
+        #mainContainer{
+            background-image:url("https://w.forfun.com/fetch/2a/2a8c0458537f9d69859eae8363f422f7.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .login-section{
+            min-height:90%;
+            min-width:40%;
+            border:2px solid #fff;
+            position:absolute;
+            left:50%;
+            top:55%;
+            transform: translate(-50%,-50%);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            transition: .3s;
+        }
+        .login-section:hover{
+            box-shadow: 0 0 60px #fff;
+        }
+        .login-section .formbox{
+           
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100%;
+           width:100%;
+           
+        }
+        .formbox h2{
+            text-align:center;
+            font-size: 35px;
+
+        }
+        .formbox .input-box{
+            width:100%;
+            height:50%;
+            border-bottom: 2px solid #fff;
+            margin:20px 0;
+            position: relative;
+        }
+        .input-box input{
+            width:100%;
+            height:100%;
+            background:transparent;
+            border:none;
+            outline:none;
+            font-size: 16px;
+            padding-right: 28px;
+            color:#fff;
+        }
+        .input-box label{
+            position: absolute;
+            top:40%;
+            left:0;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: 500;
+            color:#fff;
+            transition: .2s ease;
+        }
+        .input-box .icon{
+            position:absolute;
+            top:-13px;
+            right:0;
+            font-size: 19px;
+        }
+        .input-box input:focus~ label,
+        .input-box input:valid~ label{
+            top:-5px;
+        }
+        .remember-password{
+            font-size: 14px;
+            font-weight: 500;
+            margin:-15px 0 15px;
+            display:flex;
+            justify-content: space-between;
+        } 
+        .remember-password label input{
+            accent-color: #ff0000;
+            margin-right: 3px;
+        
+        }
+        .btn{
+            background-color: #fff;
+            width: 100%;
+            height: 45px;
+            outline:none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            color:#fff;
+            background-color: #ff0000;
+            box-shadow: rgba(0,0,0,0.4);
+        }
+        .create-account{
+            font-size: 14.5px;
+            text-align: center;
+            margin:25px;
+        }
+        .create-account p a{
+            color: #fff;
+            font-weight:600;
+            text-decoration: none;
+        }
+        .create-account p a:hover{
+            color:#ff0000;
+            font-weight:600;
+        }
+
+
+    </style>
+    <script>
+       function saveData()
+{
+   let email,password;
+   email=document.getElementById("email").value;
+   password=document.getElementById("password").value;
+   let user_record=new Array();
+   user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+   //check email and password for login
+   if(user_record.some((v)=>{
+     return v.email==email && v.password==password 
+   })){
+      alert("Login Successfully");
+	  let current_user=user_record.filter((v)=>{
+	   //now collect the current session data
+	   return v.email==email && v.password==password
+	  })[0]
+	  //set the value of name and email in local storage for future use
+	  localStorage.setItem("name",current_user.name);
+	  localStorage.setItem("email",current_user.email);
+	  window.location.href="userDash.html";
+   }
+	else
+	{
+	   alert("Login Fail");
+	}
+}	
+    </script>
+</head>
+<body id="mainContainer">
+	<h4 style="text-align:center;font-family:sans-serif;font-weight:bold;"><a href="home.html" style="text-decoration:underline;color:#fe0195;">HOME</a>/LOGIN</h4>
+<div class="login-section">
+    <div class="formbox">
+        <form action="#">
+            <br><h2>Login</h2><br><br>
+            <div class="input-box">
+                <span class="icon">
+                    <i class='bx bxs-user-circle'></i></span>
+                    <p id="lname" class="error"></p>
+                <input type="email" id="email"/>
+                <label for="lname" >Email</label>
+                
+            </div><br>
+            <div class="input-box">
+                <span class="icon">
+                <i class='bx bxs-lock-alt'></i></span>
+                    <p id="lpass" class="error"></p>
+                    <input type="password" id="password" />
+                    <label for="lpass" >Password</label>
+                   
+                </div><br>
+                <div class="remember-password">
+                    <label for="">
+                        <input type="checkbox" name="" id="">
+                        Remember
+                    </label>
+                    
+                </div><br>
+                <input type="button" class="btn" value="Login" onclick="saveData()"/>
+                <div class="create-account">
+                    <p>Create an Account? 
+                        <a href="signUp.html">Register</a>
+                    </p>
+                </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
